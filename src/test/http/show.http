@@ -1,0 +1,24 @@
+### save
+POST http://localhost:8080/api/v1/show
+Content-Type: application/json
+
+{
+  "title": "Artistic Revolution",
+  "artist": "John Doe",
+  "place": "Modern Art Museum",
+  "user_id": 1,
+  "show_from_date": "2023-07-01T10:00:00",
+  "show_to_date": "2023-07-31T18:00:00"
+}
+
+### find
+GET http://localhost:8080/api/v1/show?page=0&size=1&del_yn=N
+Content-Type: application/json
+
+### find
+GET http://localhost:8080/api/v1/show/1?del_yn=N
+Content-Type: application/json
+
+### findAllByFullTextSearch
+GET http://localhost:8080/api/v1/show/search?keyword=mo&page=0&size=10&fromDate=&toDate=
+Content-Type: application/json

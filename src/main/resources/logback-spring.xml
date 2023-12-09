@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- console -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>UTF-8</charset>
+            <Pattern>%d{yyyy-MM-dd'T'HH:mm:ss.SSSXXX} %highlight(%5p) --- [%15.15t] %cyan(%-40.40logger) : %msg%n</Pattern>
+        </encoder>
+    </appender>
+
+    <!-- GELF/UDP -->
+    <appender name="GELF_UDP" class="de.siegmar.logbackgelf.GelfUdpAppender">
+        <graylogHost>localhost</graylogHost>
+        <graylogPort>12201</graylogPort>
+        <maxChunkSize>8192</maxChunkSize>
+        <useCompression>true</useCompression>
+        <messageIdSupplier class="de.siegmar.logbackgelf.MessageIdSupplier"/>
+        <encoder class="de.siegmar.logbackgelf.GelfEncoder">
+            <includeRawMessage>false</includeRawMessage>
+            <includeMarker>true</includeMarker>
+            <includeMdcData>true</includeMdcData>
+            <numbersAsString>false</numbersAsString>
+            <staticField>appender=GELF_UDP</staticField>
+        </encoder>
+    </appender>
+
+    <logger name="com.imhero" level="INFO" additivity="false">
+        <appender-ref ref="GELF_UDP"/>
+    </logger>
+
+    <logger name="org.springframework.web.filter.CommonsRequestLoggingFilter">
+        <level value="DEBUG" />
+        <appender-ref ref="GELF_UDP"/>
+    </logger>
+
+    <root>
+        <level value="INFO"/>
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+</configuration>

@@ -1,0 +1,31 @@
+### save
+POST http://localhost:8080/api/v1/show/detail
+Content-Type: application/json
+
+{
+  "show_id": 1,
+  "sequence": 1,
+  "show_from_dt": "2023-06-25T10:00:00",
+  "show_to_dt": "2023-06-25T12:00:00",
+  "reservation_from_dt": "2023-06-24T08:00:00",
+  "reservation_to_dt": "2023-06-25T08:00:00",
+  "delYn": "N"
+}
+
+### modify
+PUT http://localhost:8080/api/v1/show/detail
+Content-Type: application/json
+
+{
+  "id": 1,
+  "show_id": 1,
+  "sequence": 1,
+  "show_from_dt": "2023-06-25T10:00:00",
+  "show_to_dt": "2023-06-25T12:00:00",
+  "reservation_from_dt": "2023-06-24T08:00:00",
+  "reservation_to_dt": "2023-06-25T08:00:00",
+  "delYn": "N"
+}
+
+### delete
+DELETE http://localhost:8080/api/v1/show/detail/1
