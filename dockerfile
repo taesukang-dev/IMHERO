@@ -6,4 +6,4 @@ COPY /build/libs/imhero-0.0.1-SNAPSHOT.jar .
 
 #CMD java -jar -javaagent:/pinpoint/pinpoint-bootstrap-2.2.3-NCP-RC1.jar -Dpinpoint.applicationName=IMHERO -Dpinpoint.agentId=IMHERO-agent imhero-0.0.1-SNAPSHOT.jar
 
-CMD java -jar imhero-0.0.1-SNAPSHOT.jar
+CMD java -Dspring.profiles.active=local -jar imhero-0.0.1-SNAPSHOT.jar
