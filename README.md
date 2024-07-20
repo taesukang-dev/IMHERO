@@ -1,26 +1,4 @@
 # IMHERO
-- Monolithic Architecture (2023.06 - 2023.08) -> Microservice Architecture (2024.01 중 착수 예정...)
-- TODO
-  - 기존 공연 관련 API 서버 + 결제 서버 
-  - 결제 서버
-    - Java
-      - 17
-    - Spring
-      - Spring Boot 3++
-      - Spring 6++
-    - Software Architecture
-      - Hexagonal
-  - IPC
-    - Rest + Kafka
-  - Transaction
-    - Saga
-  - Data Query
-    - CQRS
-  - 보안
-    - Vault
-  - and then some...
-
-<br>
 
 ## 🖥 개요
 
